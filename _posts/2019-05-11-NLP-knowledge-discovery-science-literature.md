@@ -4,12 +4,11 @@ title:  "Using NLP and data-mining for knowledge discovery"
 author: Aline
 categories: [ NLP, data-science ]
 image: assets/images/nlp.jpg
-featured: true
-hidden: false
-toc: true
-beforetoc: "NLP gives scientists the possibility to connect precious information that is scattered over thousands of publications"
+tags: [sticky]
 
 ---
+
+NLP gives scientists the possibility to connect precious information that is scattered over thousands of publications
 
 I'm absolutely **in love with NLP**, and I'm excited to see how this field is progressing fast.
 NLP has many diverse applications, but I'm particularly interested in the data-mining of scientific literature.  

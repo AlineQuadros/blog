@@ -2,15 +2,13 @@
 layout: post
 title:  "Modelling the production of mangrove forests with PLS-R and PCA"
 author: Aline
-categories: [ mangroves, data-science, ecology ]
+categories: [ data-science, ecology ]
 image: assets/images/mangrovesfranciscoblancosstock.jpg
-featured: true
-hidden: false
-beforetoc: "How a combination of PLS-R and PCA helped me to predict how biomass production might change depending on the vegetation features"
-toc: false
+tags: [featured]
+
 ---
 
-> Photo credits: Francisco Blanco
+How a combination of PLS-R and PCA helped me to predict how biomass production might change depending on the vegetation features"
 
 Mangroves are fascinating coastal ecosystems, that harbor
 

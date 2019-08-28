@@ -4,11 +4,9 @@ title:  "Tracking environmental changes is easy with PCA"
 author: Aline
 categories: [ data-science, dataviz ]
 image: assets/images/HK-waters.jpg
-toc: true
-beforetoc: "The health or quality of an environment is accessed by monitoring multiple features. PCAs can help to detect and visualize trends over time"
-featured: false
-hidden: true
 ---
+
+The health or quality of an environment is accessed by monitoring multiple features. PCAs can help to detect and visualize trends over time
 
 
 So, for water quality for instance, it might not be enough just to know that the concentration of nitrates is decreasing, or that the dissolved oxygen is increasing. The gist is to actually know how these features are *changing together*.

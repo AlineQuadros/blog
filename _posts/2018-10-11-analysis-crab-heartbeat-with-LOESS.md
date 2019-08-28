@@ -4,10 +4,7 @@ title:  "Analysis of crab heartbeats using LOESS for curve smoothing and peak de
 author: Aline
 categories: [ data-science ]
 image: assets/images/crab-tree.jpg
-featured: false
-hidden: false
-beforetoc: "beforetoc"
-toc: true
+tags: [featured]
 ---
 
 

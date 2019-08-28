@@ -4,13 +4,10 @@ title:  "Woodlice featured in the Global Soil Biodiversity Atlas"
 author: Aline
 categories: [ ecology, woodlice ]
 image: assets/images/soil_biodiversity2.jpg
-featured: false
-hidden: false
-beforetoc: "The first Global Soil Biodiversity Atlas is out! Tons of illustrations and precious info on the amazing soil creatures"
-toc: true
+
 ---
 
-Well, woodlice
+The first Global Soil Biodiversity Atlas is out! Tons of illustrations and precious info on the amazing soil creatures
 Together with Martin Zimmer
 The entire publication is available online and _for free_ <a href="https://ec.europa.eu/jrc/en/publication/global-soil-biodiversity-atlas">here</a>
 

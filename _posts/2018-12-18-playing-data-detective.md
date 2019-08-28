@@ -5,11 +5,8 @@ author: Aline
 categories: [ Data-science ]
 tags: [ datasets, unstructured data ]
 image: assets/images/data_scientist_female.jpg
-description: "description "
-featured: false
-hidden: false
-beforetoc: "How I combined published and unpublished data into a structured dataset"
-toc: true
+tags: [featured]
+
 ---
 
 

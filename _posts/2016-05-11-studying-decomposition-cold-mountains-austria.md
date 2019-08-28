@@ -4,10 +4,7 @@ title:  "Predicting the effects of global warming on the mountains of Austria"
 author: Aline
 categories: [ ecology, data-science ]
 image: assets/images/mountains-austria.jpg
-featured: false
-hidden: false
-beforetoc: "Temperate mountains hold precious stocks of organic carbon"
-toc: true
+tags: [featured]
 ---
 
 

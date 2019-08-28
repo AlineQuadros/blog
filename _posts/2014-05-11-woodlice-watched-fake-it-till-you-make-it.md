@@ -4,11 +4,10 @@ title:  "Fake-it-til-you-make-it in woodlice"
 author: Aline
 categories: [ ecology ]
 image: assets/images/woodlice.jpg
-featured: false
-hidden: false
-beforetoc: "Woodlice and many other invertebrates have perfected the art of Fake it til you make it to deceive predators"
-toc: true
+
 ---
+
+Woodlice and many other invertebrates have perfected the art of Fake it til you make it to deceive predators
 
 You have probably watched _Amy Cuddy_'s TED Talk <a href="https://www.ted.com/talks/amy_cuddy_your_body_language_shapes_who_you_are">Your body language shapes who you are</a> where she demonstrates how body posture and gestures can change  
 

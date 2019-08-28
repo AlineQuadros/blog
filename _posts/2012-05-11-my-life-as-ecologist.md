@@ -4,12 +4,10 @@ title:  "My life as a quantitative ecologist"
 author: Aline
 categories: [ ecology ]
 image: assets/images/my-life-ecologist.JPG
-featured: false
-hidden: false
-beforetoc: "Tropical forests, rivers, cold mountains, muddy mangroves, grasslands...I've done it all!"
-toc: true
+
 ---
 
+Field work in tropical forests, rivers, cold mountains, muddy mangroves, grasslands...I've done it all!
 
 **Ecologists** want to understand how all the living things (animals, plants, microorganisms..) are affected and affect the environment that surrounds them. **Quantitative ecologists**, as you might have guessed, do that using tons of biological data, modelling tools and statistics.
 
