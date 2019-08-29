@@ -16,7 +16,6 @@ Well, unlike tropical or temperate forests, mangroves are not well studied so th
 
 ____
 Aline Ferreira Quadros, Inga Nordhaus, Hauke Reuter, Martin Zimmer. *Modelling of mangrove annual leaf litterfall with emphasis on the role of vegetation structure.* Published in <a href="https://doi.org/10.1016/j.ecss.2018.12.012">Estuarine, Coastal and Shelf Science 218, 292–299 (2018)</a>  
-
 ____
 
 ## Background  
@@ -36,7 +35,7 @@ While I was doing the reviews, I found two interesting sets of studies about the
 Well, but why would be important to predict annual litterfall the first place? Litterfall is a big component (and a proxy) of the annual aboveground production of a forest, and this information is used to track how fast (and efficiently) the forest is growing, the amount of carbon and important nutrients that is made available to all trophic levels.
 
 
-<img src='/AlineQuadros/assets/images/mangrove_npp.png'>
+<img src="/assets/images/mangrove_npp.png">
 
 > Mangroves store huge amounts of carbon in the sediments. This is so special in terms of global ecology that this carbon received a special name: <a href="https://en.wikipedia.org/wiki/Blue_carbon">Blue Carbon</a>. Much of this carbon comes from the freshwater inflow from rivers, but a lot comes from the decomposition of the leaves shed by the trees everyday, __the leaf litterfall__. Every year, mangroves shed about 57% of the total Net Primary Production (NPP). Globally, this represents an input of organic matter of about  6.7 Mg per Ha. In the mangroves of Ajuruteua, which are highly productive, this value is even bigger: 9.5 Mg per Ha. This biomass accumulates and decomposes in the sediment, or is exported to adjacent ecosystems.
 
@@ -61,7 +60,7 @@ Basically, the steps needed to apply a PLS-R to your data are:
 
 The PCA step of this analysis really surprised me. Of course, I was expecting to find some structure in the data since the cross-correlation between the tree features is well known, but I never thought the PCA was going to show me the development (or **ecological sucession**) of the mangrove sites so clearly. The results are illustrated here:
 
-<img src='/AlineQuadros/assets/images/development.png', width = 400px>
+<img src="/assets/images/development.png">
 
 
 > Results of a PCA analysis depicting the development (or succession) of the mangroves of the Ajuruteua. Ten features were used to ordinate the sites (black dots), corresponding to five features of each mangrove plant, *Rhizophora mangle* (Rm) and *Avicennia germinans* (Ag). In the top-right set we see the sites composed of a huge density of very small thin individuals (actually, species of *Avicennia* often form monospecific stands of dwarf trees like these). From the lower-right to the upper-left, we see the transition from young sites to mature sites, and the forest changes are indicated by the arrows. "Young" sites are dominated by *Avicennia germinans* (high relative density of this species). As the forest transitions to "intermediate" sites, the relative density of *Avicennia germinans* decreases (the sites become mixed), and the tree size is bigger (diameter and height). In the "mature" sites, *Rhizophora mangle* dominates and its basal area is larger, indicating a higher density of large trees.  
@@ -71,7 +70,6 @@ Here's some useful functions to run the analysis with <a href="https://github.co
 
 ```Python
 library(plsdepot)
-
 
 X = dataset[predictor_vars]   # set predictors/features
 y = labels                    # set the response variable
@@ -133,7 +131,7 @@ new.sites_sim <- mvrnorm(n, sim_sites.mean, sim_sites.cov, empirical=TRUE)
 Here's a visualization of the results, now combining the PCA and the simulation of mangrove sites and prediction of annual litterfall using the PLS-r models:  
 
 
-<img src='/AlineQuadros/assets/images/predicted.png'>  
+<img src="/assets/images/predicted.png">  
 
 
 >Predicted annual leaf litterfall of *Avicennia germinans* and *Rhizophora mangle* (in megagrams of biomass per hectare per year). Each colored dot corresponds to a simulated site with a given set of mangrove tree features. The color is obtained by predicting the annual litterfall for that given mangrove structure, and then plotting it according to the scale. The black dots show the original sites used to build the PCA. The position of each dot (site) in the PCA space indicates the features of that simulated mangrove site.
@@ -153,26 +151,22 @@ We might not be there yet, because, as I mentioned above, this was the first att
 
 **References containing the vegetation and litterfall data:**
 
-###### Abreu M.M.O. et al. 2006. Analysis of floristic composition and structure in a fragment of terra firme forest and an adjacent mangrove stand on Ajuruteua peninsula, Bragança, Pará. Boletim do Museu Paraense Emílio Goeldi 2: 27–34.
+Abreu M.M.O. et al. 2006. Analysis of floristic composition and structure in a fragment of terra firme forest and an adjacent mangrove stand on Ajuruteua peninsula, Bragança, Pará. Boletim do Museu Paraense Emílio Goeldi 2: 27–34.
 
-###### Fernandes, M.E.B., Nascimento, A.A.M., Carvalho, M.L., 2007. Estimativa da produçao anual de serapilheira dos bosques de mangue no Furo Grande, Bragança-Pará. Rev. Árvore 31, 949–958.
+Fernandes, M.E.B., Nascimento, A.A.M., Carvalho, M.L., 2007. Estimativa da produçao anual de serapilheira dos bosques de mangue no Furo Grande, Bragança-Pará. Rev. Árvore 31, 949–958.
 
-###### Mehlig U et al. 2010. Mangrove Vegetation of the Caeté Estuary. – In: Saint-Paul, U. and Schneider, H. (ed.), Mangrove Dynamics and Management in North Brazil. Ecological Studies, Springer, pp. 71–107.
+Mehlig U et al. 2010. Mangrove Vegetation of the Caeté Estuary. – In: Saint-Paul, U. and Schneider, H. (ed.), Mangrove Dynamics and Management in North Brazil. Ecological Studies, Springer, pp. 71–107.
 
-###### Mehlig U. 2001. Aspects of tree primary production in an equatorial mangrove forest in Brazil. ZMT Contributions vol 14. PhD thesis, University of Bremen, Bremen. 155 p.
+Mehlig U. 2001. Aspects of tree primary production in an equatorial mangrove forest in Brazil. ZMT Contributions vol 14. PhD thesis, University of Bremen, Bremen. 155 p.
 
-###### Menezes MPM et al. 2003. Annual growth rings and long-term growth patterns of mangrove trees from the Braganca peninsula, North Brazil. Wetlands Ecology and Management 11: 233–242.
+Menezes MPM et al. 2003. Annual growth rings and long-term growth patterns of mangrove trees from the Braganca peninsula, North Brazil. Wetlands Ecology and Management 11: 233–242.
 
-###### Menezes MPM. 2006. Investigations of mangrove forest dynamics in Amazonia, North Brazil. PhD thesis, University of Bremen, Bremen.
+Menezes MPM. 2006. Investigations of mangrove forest dynamics in Amazonia, North Brazil. PhD thesis, University of Bremen, Bremen.
 
-###### Pereira MVS. 2005. Análise da estrutura florística de “bosques de Avicennia” na península de Ajuruteua, Bragança, Pará. Thesis, University of Pará, Bragança.
+Pereira MVS. 2005. Análise da estrutura florística de “bosques de Avicennia” na península de Ajuruteua, Bragança, Pará. Thesis, University of Pará, Bragança.
 
-###### Reise A. 1999. Untersuchungen zum Streufall und Streuumsatz als Basis zur Charakterisierung des Stoffflusses in verschieden strukturierten Mangroven waldern Braganças/Nordostbrasiliens. Diploma thesis, University of Lüneburg, Lüneburg.
+Reise A. 1999. Untersuchungen zum Streufall und Streuumsatz als Basis zur Charakterisierung des Stoffflusses in verschieden strukturierten Mangroven waldern Braganças/Nordostbrasiliens. Diploma thesis, University of Lüneburg, Lüneburg.
 
-###### Reise A. 2003. Estimates of biomass and productivity in fringe mangroves on North-Brazil. PhD thesis, University of Bremen, ZMT Contribution 16, Bremen.
+Reise A. 2003. Estimates of biomass and productivity in fringe mangroves on North-Brazil. PhD thesis, University of Bremen, ZMT Contribution 16, Bremen.
 
-###### Seixas JAS et al. 2006. Análise estrutural da vegetação arbórea dos mangues no Furo Grande, Bragança-Pará. Boletim do Museu Paraense Emílio Goeldi Ciências Naturais 1: 61–69.
-
-
-
- <span class="spoiler">Thank you for reading it</span>
+Seixas JAS et al. 2006. Análise estrutural da vegetação arbórea dos mangues no Furo Grande, Bragança-Pará. Boletim do Museu Paraense Emílio Goeldi Ciências Naturais 1: 61–69.

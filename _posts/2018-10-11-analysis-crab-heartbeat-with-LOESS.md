@@ -12,7 +12,7 @@ Scientists worldwide have been recording and analyzing the heartbeats of all ani
 
 A couple years ago I collaborated on a project where scientists wanted to see how *mangrove crabs* were being affected by global warming. They used a system that records the heartbeats by an infra-red sensor attached to the crabs’ carapace connected to an oscilloscope. ) to get the crab's heartbeats by attaching small sensors to the crabs' back (_fun fact_ the crab's heart is not located on its "chest" but rather on its "back"). The crabs were then confined to a space where one or more environmental features were being manipulated. In this case, it was the water temperature. The experiment can be repeated with diferent individuals, different species, under diferent conditions, depending on the *research question*.
 
-<img src='/AlineQuadros/assets/images/signal1.png'>  
+<img src='/assets/images/signal1.png'>  
 
 > Heart frequency is one of the most important physiological parameters of animals. Through the analysis of heartbeats, scientists can understand the conditions that stress animals, and how much of each stress they support until reaching a critical condition. This information is latter used to predict how different species will respond to environmental changes, such as global warming or ocean acidification.  
 
@@ -60,7 +60,7 @@ piks <- piks[piks$y.predict <=0,]
 And this is like the signal looks like after processing:  
 
 
-<img src='/AlineQuadros/assets/images/signal2.png'>
+<img src='/assets/images/signal2.png'>
 
 
 >The top panel shows the raw signal (gray lines) and the curves (red) and peaks (green dots) detected using LOESS (local non-parametric regression). From there, we calculate the number of peaks per unit of time (beats per minute, per example), as shown in the second panel. This series of data is then plotted against the variation of another factor (water temperature, for instance) to monitor the animal's response along time.
@@ -70,4 +70,4 @@ The tricky thing is that, the heartbeat alone tells little about an animal's con
 In situations like this it is really handy to know how to code in languages like R and Python. While the modelling required for this project (a few simple linear models), there's a lot of data import and export, merging, and transformations.
 
 
-This project has lots of interesting findings, and the partial results were presented in November 2018 by the author of the study, **Pedro Jimenez**, and can be read <a href="/AlineQuadros/assets/images/study_pedro.pdf"> here</a>. There's more coming up!
+This project has lots of interesting findings, and the partial results were presented in November 2018 by the author of the study, **Pedro Jimenez**, and can be read <a href="/assets/images/study_pedro.pdf"> here</a>. There's more coming up!
