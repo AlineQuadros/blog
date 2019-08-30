@@ -13,7 +13,7 @@ Scientists worldwide have been recording and analyzing the heartbeats of all ani
 
 A couple years ago I collaborated on a project where scientists wanted to see how *mangrove crabs* were being affected by global warming. They used a system that records the heartbeats by an infra-red sensor attached to the crabs’ carapace connected to an oscilloscope. ) to get the crab's heartbeats by attaching small sensors to the crabs' back (_fun fact_ the crab's heart is not located on its "chest" but rather on its "back"). The crabs were then confined to a space where one or more environmental features were being manipulated. In this case, it was the water temperature. The experiment can be repeated with diferent individuals, different species, under diferent conditions, depending on the *research question*.
 
-<img src='/assets/images/signal1.png'>  
+<img src='/blog/assets/images/signal1.png'>  
 
 > Heart frequency is one of the most important physiological parameters of animals. Through the analysis of heartbeats, scientists can understand the conditions that stress animals, and how much of each stress they support until reaching a critical condition. This information is latter used to predict how different species will respond to environmental changes, such as global warming or ocean acidification.  
 
@@ -61,7 +61,7 @@ piks <- piks[piks$y.predict <=0,]
 And this is like the signal looks like after processing:  
 
 
-<img src='/assets/images/signal2.png'>
+<img src='/blog/assets/images/signal2.png'>
 
 
 >The top panel shows the raw signal (gray lines) and the curves (red) and peaks (green dots) detected using LOESS (local non-parametric regression). From there, we calculate the number of peaks per unit of time (beats per minute, per example), as shown in the second panel. This series of data is then plotted against the variation of another factor (water temperature, for instance) to monitor the animal's response along time.

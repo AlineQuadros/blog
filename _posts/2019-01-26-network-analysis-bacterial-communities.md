@@ -50,7 +50,7 @@ edges_att <- data.frame(TYPE = E(gD)$association)
 
 ```
 
-<img src="blog/assets/images/net1.png">
+<img src="/blog/assets/images/net1.png">
 
 > Networks of associated microorganisms. The black lines indicate a strong association (Spearman correlation coefficient > 0.8), whereas the red lines indicate a strong negative association, i.e., groups of organisms that rarely co-occurred in a sample. Figure produced using Gephi.
 
