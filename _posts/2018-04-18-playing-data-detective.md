@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Playing the data detective"
-author: Aline
+author: aline
 categories: [ Data-science ]
 tags: [ datasets, unstructured data ]
 image: assets/images/data_scientist_female.jpg
