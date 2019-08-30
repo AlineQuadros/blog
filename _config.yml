@@ -36,7 +36,7 @@ defaults:
     values:
       layout: post
       author: aline
-      avatar: /assets/images/avatar1.jpg
+      avatar: /assets/images/avatar.png
 
   # all pages
   - scope:

@@ -1,14 +1,15 @@
 ---
 layout: post
-title:  "Analysis of crab heartbeats using LOESS for curve smoothing and peak detection"
+title:  "Analysis of crab heartbeats using LOESS"
 author: Aline
 categories: [ data-science ]
 image: assets/images/crab-tree.jpg
 tags: [featured]
 ---
 
+LOESS (aka local regression) is an ideal tool for the analysis of physiological signals, and can be used on the raw data for curve smoothing and peak detection.
 
-Scientists worldwide have been recording and analyzing the heartbeats of all animals you can think of. From the largest to the tiniest. In the same way your doctor can learn a lot from your health by monitoring your heart frequency, scientists can learn a lot about the physiology of animal too.
+Scientists worldwide have been recording and analyzing the heartbeats of all animals you can think of. From the largest to the tiniest ones. That's because, in the same way your doctor can learn a lot from your health by monitoring your heart frequency, scientists can learn a lot about the physiology of animal too.
 
 A couple years ago I collaborated on a project where scientists wanted to see how *mangrove crabs* were being affected by global warming. They used a system that records the heartbeats by an infra-red sensor attached to the crabs’ carapace connected to an oscilloscope. ) to get the crab's heartbeats by attaching small sensors to the crabs' back (_fun fact_ the crab's heart is not located on its "chest" but rather on its "back"). The crabs were then confined to a space where one or more environmental features were being manipulated. In this case, it was the water temperature. The experiment can be repeated with diferent individuals, different species, under diferent conditions, depending on the *research question*.
 
