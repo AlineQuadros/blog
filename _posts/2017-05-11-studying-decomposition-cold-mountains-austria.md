@@ -7,6 +7,7 @@ image: assets/images/mountains-austria.jpg
 tags: [featured]
 ---
 
+This was one of my all-time-favorite experiments. We used mixed-models and the space-for-time approach to explore the connections between temperature, soil animals, and litter decomposition.
 
 Our experimental design was like this
 
@@ -15,7 +16,7 @@ Our experimental design was like this
 5 blocks of mesocosms per site
 4 mesocosms per block
 
-<img src="faber_experimentaldesign.png">
+<img src="/assets/images/faber_experimentaldesign.png">
 
 > Illustration of our experimental design
 
