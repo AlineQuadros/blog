@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Predicting the effects of global warming on the mountains of Austria"
-author: Aline
+author: aline
 categories: [ ecology, data-science ]
 image: assets/images/mountains-austria.jpg
 tags: [featured]

@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Woodlice featured in the Global Soil Biodiversity Atlas"
-author: Aline
+author: aline
 categories: [ ecology, woodlice ]
 image: assets/images/soil_biodiversity2.jpg
 

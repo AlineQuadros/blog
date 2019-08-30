@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Fake-it-til-you-make-it in woodlice"
-author: Aline
+author: aline
 categories: [ ecology ]
 image: assets/images/woodlice.jpg
 

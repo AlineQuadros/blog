@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Using NLP for data-mining of scientific literature"
-author: Aline
+author: aline
 categories: [ machine learning, data-science ]
 image: assets/images/nlp.jpg
 tags: [sticky]

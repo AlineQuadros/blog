@@ -1,18 +1,16 @@
 ---
 layout: post
 title:  "Modelling the production of mangrove forests with PLS-R and PCA"
-author: Aline
+author: aline
 categories: [ data-science, ecology ]
 image: assets/images/mangrovesfranciscoblancosstock.jpg
 tags: [featured]
 
 ---
 
-How a combination of PLS-R and PCA helped me to predict how biomass production might change depending on the vegetation features"
+How a combination of PLS-R and PCA helped me to predict how biomass production might change depending on the vegetation features
 
-Mangroves are fascinating coastal ecosystems, that harbor
-
-Well, unlike tropical or temperate forests, mangroves are not well studied so there's a lot we don't know about them. In 2017 I undertook a one-year long project to fill some gaps, and this post has a brief presentation of one of its outcomes. The full paper containing the results is this:
+Mangroves are fascinating coastal ecosystems. Unlike tropical or temperate forests, mangroves are not well studied so there's a lot we don't know about them. In 2017 I undertook a one-year long project to fill some gaps, and this post has a brief presentation of one of its outcomes. The full paper containing the results is this:
 
 ____
 Aline Ferreira Quadros, Inga Nordhaus, Hauke Reuter, Martin Zimmer. *Modelling of mangrove annual leaf litterfall with emphasis on the role of vegetation structure.* Published in <a href="https://doi.org/10.1016/j.ecss.2018.12.012">Estuarine, Coastal and Shelf Science 218, 292–299 (2018) </a>
@@ -28,7 +26,7 @@ Initially, my task was to review published and unpublished papers (basically, a 
 >__Traits__ are quantitative and qualitative features of living beings that help researchers to model the ecology and behavior of species, and are extremely useful in **quantitative ecology** these days.
 
 
-While I was doing the reviews, I found two interesting sets of studies about the mangroves of Ajuruteua (north of Brazil). One set contained studies about the **vegetation structure** of mangrove stands (tree height, diameter, density, etc.), and another set had estimates of the litterfall production of these and other mangrove sites. Some studies even contained both information (the list of studies is at the end of this post). While most studies explained the distribution of litterfall along the year, based on climatic features, I noticed that none attempted to predict **how much** litterfall could be produced. That's how I came up with this research question:
+While I was doing the reviews, I found two interesting sets of studies about the mangroves of Ajuruteua (north of Brazil). One set contained studies about the **vegetation structure** of mangrove stands (tree height, diameter, density, etc.), and another set had estimates of the **litterfall production** of these and other mangrove sites. Some studies even contained both information (the list of studies is at the end of this post). While most studies explained the distribution of litterfall along the year, based on climatic features, I noticed that none attempted to predict **how much** litterfall could be produced. That's how I came up with this research question:
 
 #### Can we predict the annual litterfall of a given mangrove site, just by knowing the features of the vegetation?   
 
@@ -38,18 +36,17 @@ Well, but why would be important to predict annual litterfall the first place? L
 
 <img src="/blog/assets/images/mangrove_npp.png">
 
-> Mangroves store huge amounts of carbon in the sediments. This is so special in terms of global ecology that this carbon received a special name: <a href="https://en.wikipedia.org/wiki/Blue_carbon">Blue Carbon</a>. Much of this carbon comes from the freshwater inflow from rivers, but a lot comes from the decomposition of the leaves shed by the trees everyday, __the leaf litterfall__. Every year, mangroves shed about 57% of the total Net Primary Production (NPP). Globally, this represents an input of organic matter of about  6.7 Mg per Ha. In the mangroves of Ajuruteua, which are highly productive, this value is even bigger: 9.5 Mg per Ha. This biomass accumulates and decomposes in the sediment, or is exported to adjacent ecosystems.
+<div class="alert-lightblue"> Mangroves store huge amounts of carbon in the sediments. This is so special in terms of global ecology that this carbon received a special name: <a href="https://en.wikipedia.org/wiki/Blue_carbon">Blue Carbon</a>. Much of this carbon comes from the freshwater inflow from rivers, but a lot comes from the decomposition of the leaves shed by the trees everyday, __the leaf litterfall__. Every year, mangroves shed about 57% of the total Net Primary Production (NPP). Globally, this represents an input of organic matter of about  6.7 Mg per Ha. In the mangroves of Ajuruteua, which are highly productive, this value is even bigger: 9.5 Mg per Ha. This biomass accumulates and decomposes in the sediment, or is exported to adjacent ecosystems. </div>
 
 
-Could we predict how much biomass a mangrove will produce, if we have basic information on the structure of its trees?
-And _the answer is YES!_ At least is seems to work (you can read the full publication <a href="https://doi.org/10.1016/j.ecss.2018.12.012">here</a>, or <a href=""> send me an email</a> if you don't have access to it.
+Could we predict how much biomass a mangrove will produce if we have basic information on the structure of its trees?
+And _the answer is YES!_ At least is seems to work (you can read the full publication <a href="https://doi.org/10.1016/j.ecss.2018.12.012">here</a>, or <a href="mailto:aline.fquadros@outlook.com"> send me an email</a> if you don't have access to it.
 
 
 Why did I choose to use PLS-R? Well PLS-R is __a fantastic tool for anyone dealing with biological data__. That's because biological features are usually orthogonal (cross-correlated). That hampers, for instance, the use of more common techniques, such as (multivariate) linear regressions. If PLS is completely new to you (as it was new to me before this project) let me tell you I learned a lot about it by reading Gaston Sanchez's <a href="https://sagaofpls.github.io/"> The Saga of PLS </a>.
 
 
 Basically, the steps needed to apply a PLS-R to your data are:
-
 
 * Organize the features dataset
 * Organize the response dataset (PLS-R in <a href="https://github.com/gastonstat/plsdepot">package plsdepot</a> can handle univariate and multivariate responses)
@@ -64,12 +61,12 @@ The PCA step of this analysis really surprised me. Of course, I was expecting to
 <img src="/blog/assets/images/development.png">
 
 
-> Results of a PCA analysis depicting the development (or succession) of the mangroves of the Ajuruteua. Ten features were used to ordinate the sites (black dots), corresponding to five features of each mangrove plant, *Rhizophora mangle* (Rm) and *Avicennia germinans* (Ag). In the top-right set we see the sites composed of a huge density of very small thin individuals (actually, species of *Avicennia* often form monospecific stands of dwarf trees like these). From the lower-right to the upper-left, we see the transition from young sites to mature sites, and the forest changes are indicated by the arrows. "Young" sites are dominated by *Avicennia germinans* (high relative density of this species). As the forest transitions to "intermediate" sites, the relative density of *Avicennia germinans* decreases (the sites become mixed), and the tree size is bigger (diameter and height). In the "mature" sites, *Rhizophora mangle* dominates and its basal area is larger, indicating a higher density of large trees.  
+Results of a PCA analysis depicting the development (or succession) of the mangroves of the Ajuruteua. Ten features were used to ordinate the sites (black dots), corresponding to five features of each mangrove plant, *Rhizophora mangle* (Rm) and *Avicennia germinans* (Ag). In the top-right set we see the sites composed of a huge density of very small thin individuals (actually, species of *Avicennia* often form monospecific stands of dwarf trees like these). From the lower-right to the upper-left, we see the transition from young sites to mature sites, and the forest changes are indicated by the arrows. "Young" sites are dominated by *Avicennia germinans* (high relative density of this species). As the forest transitions to "intermediate" sites, the relative density of *Avicennia germinans* decreases (the sites become mixed), and the tree size is bigger (diameter and height). In the "mature" sites, *Rhizophora mangle* dominates and its basal area is larger, indicating a higher density of large trees.  
 
 
 Here's some useful functions to run the analysis with <a href="https://github.com/gastonstat/plsdepot">plsdepot</a> in R:  
 
-```Python
+```
 library(plsdepot)
 
 X = dataset[predictor_vars]   # set predictors/features
@@ -113,7 +110,7 @@ Once equations like these are obtained, we can **predict** the litterfall produc
 There's a cool trick here. In order to create a list of sites that made sense (i. e., had feature values that could actually occur in nature). As I said above, the diameter, height, density, and basal area of trees are highly correlated, and they co-vary within limits of each other. For instance, a stand with 40 m tall trees can't have a mean diameter of 2 cm). So, to generate **artificial but realistic data**, I used the function `mvrnorm()` from `Package MASS`. `mvrnorm()` is a cool and useful function that generates **multivariate data** from a specified multivariate normal distribution. You can find a detailed explanation and examples <a href="https://blog.revolutionanalytics.com/2016/02/multivariate_data_with_r.html">in this very nice post </a>. Here's a simple example:
 
 
-```Python
+```
 # calculate the mean value of each feature across sites
 sim_sites.mean <- apply(X, 2, mean,  na.rm = TRUE)
 # calculate the covariance between sites
@@ -135,7 +132,7 @@ Here's a visualization of the results, now combining the PCA and the simulation 
 <img src="/blog/assets/images/predicted.png">  
 
 
->Predicted annual leaf litterfall of *Avicennia germinans* and *Rhizophora mangle* (in megagrams of biomass per hectare per year). Each colored dot corresponds to a simulated site with a given set of mangrove tree features. The color is obtained by predicting the annual litterfall for that given mangrove structure, and then plotting it according to the scale. The black dots show the original sites used to build the PCA. The position of each dot (site) in the PCA space indicates the features of that simulated mangrove site.
+Predicted annual leaf litterfall of *Avicennia germinans* and *Rhizophora mangle* (in megagrams of biomass per hectare per year). Each colored dot corresponds to a simulated site with a given set of mangrove tree features. The color is obtained by predicting the annual litterfall for that given mangrove structure, and then plotting it according to the scale. The black dots show the original sites used to build the PCA. The position of each dot (site) in the PCA space indicates the features of that simulated mangrove site.
 
 
 How can this model be used? Ideally, we could visit a few mangrove stands, collect data from a few trees (species ID, height, diameter), and collect data about how the trees are distributed within each stand (density and basal area). Feeding this data into the model, __we could predict how much biomass this stand will produce in a year__.

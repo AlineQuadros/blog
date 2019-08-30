@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Tracking environmental changes is easy with PCA"
-author: Aline
+author: aline
 categories: [ data-science, dataviz ]
 image: assets/images/HK-waters.jpg
 ---

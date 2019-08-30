@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "My life as a quantitative ecologist"
-author: Aline
+author: aline
 categories: [ ecology ]
 image: assets/images/my-life-ecologist.JPG
 

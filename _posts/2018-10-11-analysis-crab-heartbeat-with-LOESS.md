@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Analysis of crab heartbeats using LOESS"
-author: Aline
+author: aline
 categories: [ data-science ]
 image: assets/images/crab-tree.jpg
 tags: [featured]
