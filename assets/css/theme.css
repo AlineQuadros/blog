@@ -607,20 +607,13 @@ a.text-dark:hover {
 }
 .alert-caption {
 	color:rgb(71, 103, 72);
-	font-size: 1rem;
+	font-size: 0.7rem;
   font-weight: 400;
   line-height: 1.1;
   text-align: center;
 	font-style: italic;
 }
-.alert-caption {
-	color:rgb(71, 103, 72);
-	font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.1;
-  text-align: center;
-	font-style: italic;
-}
+
 .alert-lightblue hr {
 	border-top-color:#d7eade;
 }
