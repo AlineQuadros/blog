@@ -35,7 +35,7 @@ While I was doing the reviews, I found two interesting sets of studies about the
 Well, but why would be important to predict annual litterfall the first place? Litterfall is a big component (and a proxy) of the annual aboveground production of a forest, and this information is used to track how fast (and efficiently) the forest is growing, the amount of carbon and important nutrients that is made available to all trophic levels.
 
 
-<img src="/assets/images/mangrove_npp.png">
+<img src="/blog/assets/images/mangrove_npp.png">
 
 > Mangroves store huge amounts of carbon in the sediments. This is so special in terms of global ecology that this carbon received a special name: <a href="https://en.wikipedia.org/wiki/Blue_carbon">Blue Carbon</a>. Much of this carbon comes from the freshwater inflow from rivers, but a lot comes from the decomposition of the leaves shed by the trees everyday, __the leaf litterfall__. Every year, mangroves shed about 57% of the total Net Primary Production (NPP). Globally, this represents an input of organic matter of about  6.7 Mg per Ha. In the mangroves of Ajuruteua, which are highly productive, this value is even bigger: 9.5 Mg per Ha. This biomass accumulates and decomposes in the sediment, or is exported to adjacent ecosystems.
 
@@ -60,7 +60,7 @@ Basically, the steps needed to apply a PLS-R to your data are:
 
 The PCA step of this analysis really surprised me. Of course, I was expecting to find some structure in the data since the cross-correlation between the tree features is well known, but I never thought the PCA was going to show me the development (or **ecological sucession**) of the mangrove sites so clearly. The results are illustrated here:
 
-<img src="/assets/images/development.png">
+<img src="/blog/assets/images/development.png">
 
 
 > Results of a PCA analysis depicting the development (or succession) of the mangroves of the Ajuruteua. Ten features were used to ordinate the sites (black dots), corresponding to five features of each mangrove plant, *Rhizophora mangle* (Rm) and *Avicennia germinans* (Ag). In the top-right set we see the sites composed of a huge density of very small thin individuals (actually, species of *Avicennia* often form monospecific stands of dwarf trees like these). From the lower-right to the upper-left, we see the transition from young sites to mature sites, and the forest changes are indicated by the arrows. "Young" sites are dominated by *Avicennia germinans* (high relative density of this species). As the forest transitions to "intermediate" sites, the relative density of *Avicennia germinans* decreases (the sites become mixed), and the tree size is bigger (diameter and height). In the "mature" sites, *Rhizophora mangle* dominates and its basal area is larger, indicating a higher density of large trees.  
@@ -94,17 +94,17 @@ plot(pls1_model)
 Here's how my best models look like in numbers (i. e., the coefficients). The model of *Rhizophora mangle* is not nearly as good as the one for *Avicennia germinans*. I discuss the possible reasons for that in the paper (*spoiler alert:* I needed more data).
 
 *Avicennia germinans* (R-squared = 0.85):
-
+```
 Model 4 (diameter + height + density + basal area + rel. density)  
-
 LLAg=0.06247 – 0.01566 X1 + 0.00314 X2 - 0.00154 X3 + 0.14053 X4 + 0.17194 X5
 R-squared = 0.85
+```
 
 *Rhizophora mangle* (R-squared = 0.66):
-
+```
 Model 4 diameter + height + density + basal area + rel. density
 LLRm = −1.9959 + 0.0721 X1 + 0.9180 X2 + 0.0301 X3 - 0.4701 X4 + 0.2119 X5
-
+```
 
 Cool, huh?  
 Once equations like these are obtained, we can **predict** the litterfall production of new sites that contain these two species, as long as we have the same features and species. Because I didn't have additional data to use with my models, I created a set of **artificial data** to experiment with my models.  
@@ -131,7 +131,7 @@ new.sites_sim <- mvrnorm(n, sim_sites.mean, sim_sites.cov, empirical=TRUE)
 Here's a visualization of the results, now combining the PCA and the simulation of mangrove sites and prediction of annual litterfall using the PLS-r models:  
 
 
-<img src="/assets/images/predicted.png">  
+<img src="/blog/assets/images/predicted.png">  
 
 
 >Predicted annual leaf litterfall of *Avicennia germinans* and *Rhizophora mangle* (in megagrams of biomass per hectare per year). Each colored dot corresponds to a simulated site with a given set of mangrove tree features. The color is obtained by predicting the annual litterfall for that given mangrove structure, and then plotting it according to the scale. The black dots show the original sites used to build the PCA. The position of each dot (site) in the PCA space indicates the features of that simulated mangrove site.

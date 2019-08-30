@@ -2,7 +2,7 @@
 layout: post
 title:  "Using NLP and data-mining for knowledge discovery"
 author: Aline
-categories: [ data-science ]
+categories: [ machine learning, data-science ]
 image: assets/images/nlp.jpg
 tags: [sticky]
 

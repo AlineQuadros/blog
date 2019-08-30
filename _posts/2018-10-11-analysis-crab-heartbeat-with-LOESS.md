@@ -72,3 +72,5 @@ In situations like this it is really handy to know how to code in languages like
 
 
 This project has lots of interesting findings, and the partial results were presented in November 2018 by the author of the study, **Pedro Jimenez**, and can be read <a href="/assets/images/study_pedro.pdf"> here</a>. There's more coming up!
+
+<embed width="191" height="207" name="plugin" src="/assets/images/study_pedro.pdf" type="application/pdf">

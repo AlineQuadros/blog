@@ -4,7 +4,6 @@ description: 'Data science | Ecological applications'
 logo: 'assets/images/logo.png'
 favicon: 'assets/images/favicon.ico'
 baseurl: '/blog'
-disqus: 'demowebsite'
 email: 'aline.fquadros@outlook.com'
 
 include: ["_pages"]

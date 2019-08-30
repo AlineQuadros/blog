@@ -16,7 +16,7 @@ Our experimental design was like this
 5 blocks of mesocosms per site
 4 mesocosms per block
 
-<img src="/assets/images/faber_experimentaldesign.png">
+<img src="/blog/assets/images/faber_experimentaldesign.png">
 
 > Illustration of our experimental design
 
