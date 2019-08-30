@@ -15,7 +15,8 @@ Mangroves are fascinating coastal ecosystems, that harbor
 Well, unlike tropical or temperate forests, mangroves are not well studied so there's a lot we don't know about them. In 2017 I undertook a one-year long project to fill some gaps, and this post has a brief presentation of one of its outcomes. The full paper containing the results is this:
 
 ____
-Aline Ferreira Quadros, Inga Nordhaus, Hauke Reuter, Martin Zimmer. *Modelling of mangrove annual leaf litterfall with emphasis on the role of vegetation structure.* Published in <a href="https://doi.org/10.1016/j.ecss.2018.12.012">Estuarine, Coastal and Shelf Science 218, 292–299 (2018)</a>  
+Aline Ferreira Quadros, Inga Nordhaus, Hauke Reuter, Martin Zimmer. *Modelling of mangrove annual leaf litterfall with emphasis on the role of vegetation structure.* Published in <a href="https://doi.org/10.1016/j.ecss.2018.12.012">Estuarine, Coastal and Shelf Science 218, 292–299 (2018) </a>
+
 ____
 
 ## Background  

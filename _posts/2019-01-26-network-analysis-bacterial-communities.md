@@ -3,28 +3,41 @@ layout: post
 title:  "Network analysis of bacterial communities"
 author: Aline
 categories: [ ecology, data-science, dataviz]
-image: assets/images/rice-network.png
+image: assets/images/microbialnets.png
 tags: [featured]
 ---
 
 
-Network analysis has been increasingly used to understand relationships between entities. Although the method itself and all the network metrics have been around for a long time, recent improvements of *visualization techniques* really
+Network analysis has been increasingly used to understand relationships between entities. Although the method itself and all the network metrics have been around for a long time, recent improvements of *visualization techniques* really made this tool more popular.
 
-In ecology,
+In ecology, network analysis can be used to study the interactions between species, and to understand the organization of ecological communities.
 
 Networks are composed of **nodes** (and their attributes) and **edges** (and their attributes). To build a network, these two datasets are necessary. For example, the project showed above, the nodes are the species (actually OTUs), and the edges represent associations between them. Attributes of **nodes** could be ID, species name, species function, habitat, etc. Attributes of **edges** are any  attribute indicating the strength of an association, or volume of or the nature of the association. In my case, they were "negative" (indicating a negative association), or "positive". More commonly, **edges** have a `weight` attribute that is used to determine the thickness of the lines.
 
 This was how my original `corr_dataset` looked like:
 ```
-OTU_1   OTU_2   coef_correlation
+OTU_1     OTU_2     coef_correlation
+16s_0001  16s_0001  0.8435
+16s_0001  16s_0002  0.8908
+16s_0001  16s_0003  -0.9866
+16s_0001  16s_0004  0.9744
+16s_0001  16s_0005  0.8033
+16s_0001  16s_0005  0.8675
+16s_0001  16s_0006  0.8035
+```
 
+To organize the `nodes` dataset, you'll need to get a list of your entities. This is generally the first column of your `nodes` dataset. The other columns (optional, but really useful) will store the `attributes` of each node. In my case, each entity (microbial "species") had the following attributes: `gross_id` (keeping the species identification at a coarser level, like Order) and `fine_id` (keeping the species identification at a finer level, like Genus).
+
+```
+# get the list of entities
+nodes <- as.data.frame(unique(c(OTU_1,OTU_2)))
+
+# set attributes by including different columns to the dataframe
+nodes$gross_id
+nodes$fine_id
 
 ```
 
-It is necessary that the nodes should be unique
-```
-nodes <- as.data.frame(unique(c(a1,a2)))
-```
 
 ```
 # Create a graph. Use simplify to ensure that there are no duplicated edges or self loops

@@ -71,6 +71,6 @@ The tricky thing is that, the heartbeat alone tells little about an animal's con
 In situations like this it is really handy to know how to code in languages like R and Python. While the modelling required for this project (a few simple linear models), there's a lot of data import and export, merging, and transformations.
 
 
-This project has lots of interesting findings, and the partial results were presented in November 2018 by the author of the study, **Pedro Jimenez**, and can be read <a href="/assets/images/study_pedro.pdf"> here</a>. There's more coming up!
+This project has lots of interesting findings, and the partial results were presented in November 2018 by the author of the study, **Pedro Jimenez**, and can be read <a href="/blog/assets/images/study_pedro.pdf"> here</a>. There's more coming up!
 
-<embed width="191" height="207" name="plugin" src="/assets/images/study_pedro.pdf" type="application/pdf">
+<embed width="191" height="207" name="plugin" src="/blog/assets/images/study_pedro.pdf" type="application/pdf">
