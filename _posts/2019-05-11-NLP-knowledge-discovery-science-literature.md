@@ -34,8 +34,12 @@ Here's how I did it:
 Because I had the publication year of each publication (I grouped them per decade), I was able to detect trends in time. I assumed that this analysis would provide a good overview of how the interest on mangroves has been changing along time. The results look like this:
 
 
-> Fun fact: The oldest publication about **mangrove ecology** that I could find was ...
+### visualization
+
+The tool `PyLDAVis` . I learned about it here: <ahref="https://nlpforhackers.io/topic-modeling/">https://nlpforhackers.io/topic-modeling/</a>
+
+
 
 That's it! I'm looking forward to getting more data and extracting more knowledge from published stuff
 
-> *Note: I only analyzed publications in English, which is a pity. Most mangroves of the world occur in non-English speaking  countries (like Brazil ), so there's a lot published in other languages.
+*Note: I only analyzed publications in English, which is a pity. Most mangroves of the world occur in non-English speaking  countries (like Brazil ), so there's a lot published in other languages.*

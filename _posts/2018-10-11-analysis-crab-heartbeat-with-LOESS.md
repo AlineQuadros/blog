@@ -61,7 +61,7 @@ piks <- piks[piks$y.predict <=0,]
 And this is like the signal looks like after processing:  
 
 
-<img src='/blog/assets/images/signal2.png'>
+<img src='/blog/assets/images/signal2.png' width=80%>
 
 
 >The top panel shows the raw signal (gray lines) and the curves (red) and peaks (green dots) detected using LOESS (local non-parametric regression). From there, we calculate the number of peaks per unit of time (beats per minute, per example), as shown in the second panel. This series of data is then plotted against the variation of another factor (water temperature, for instance) to monitor the animal's response along time.

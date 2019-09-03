@@ -12,16 +12,20 @@ Network analysis has been increasingly used to understand relationships between 
 
 In ecology, network analysis can be used to study the interactions between species, and to understand the organization of ecological communities.
 
-Networks are composed of **nodes** (and their attributes) and **edges** (and their attributes). Based on the relationships between these nodes and edges, a series of **metrics** can be obtained to describe the network. To build a network, these two datasets are necessary. For example, the project showed above, the nodes are the species (actually OTUs), and the edges represent associations between them. Attributes of **nodes** could be ID, species name, species function, habitat, etc. Attributes of **edges** are any  attribute indicating the strength of an association, or volume of or the nature of the association. In my case, they were "negative" (indicating a negative association), or "positive". More commonly, **edges** have a `weight` attribute that is used to determine the thickness of the lines.
+Networks are composed of **nodes** (and their attributes) and **edges** (and their attributes). To build a network, these two datasets are necessary. For example, the project showed above, the nodes are the species (actually OTUs), and the edges represent associations between them. Attributes of **nodes** could be ID, species name, species function, habitat, etc. Attributes of **edges** are any  attribute indicating the strength of an association, or volume of or the nature of the association. In my case, they were "negative" (indicating a negative association), or "positive". More commonly, **edges** have a `weight` attribute that is used to determine the thickness of the lines. Based on the relationships between these nodes and edges, a series of **metrics** can be obtained to describe the network.
 
-In this project I used *network analysis* to study the organization of microbial communities found in rice fields contaminated with pesticides. The goal was to identify, among thousands of OTUs, groups (networks) of co-occurring microorganisms, and groups of antagonistic groups. The identification of co-occurring groups indicate the formation of consortia and/or facilitation between the microorganisms. Here's one of the main networks:
+In this project I used *network analysis* to study the organization of microbial communities found in rice fields contaminated with pesticides. The goal was to identify, among thousands of OTUs, groups (networks) of co-occurring microorganisms, and groups of antagonistic groups. The identification of co-occurring groups indicate the formation of consortia and/or facilitation between the microorganisms. Here's one of the main results:
 
 <img src="/blog/assets/images/net1.png">
 
-Networks of associated microorganisms. The black lines indicate a strong association (Spearman correlation coefficient > 0.8), whereas the red lines indicate a strong negative association, i.e., groups of organisms that rarely co-occurred in a sample. Figure produced using Gephi (see below).
+The black lines indicate a strong association (Spearman correlation coefficient > 0.8), whereas the red lines indicate a strong negative association, i.e., groups of organisms that rarely co-occurred in a sample. Figure produced using Gephi (see below).
+
+To build this visualization I used <a href="https://gephi.org/">GEPHI</a>, and *I highly recommend it*. Although there are packages that enable the visualization of networks inside R (and take my word, I tried all of them before adopting Gephi), none of them can produce figures as above in less than a few minutes and with minimum configuration.
+
+>Gephi is the leading visualization and exploration software for all kinds of graphs and networks. Gephi is open-source and free. Runs on Windows, Mac OS X and Linux.
 
 
-### How to organize the data and run basic network analysis in R
+### How to organize the data for network analysis and export it to GEPHI using R
 
 After calculating the Pearson correlation between all OTUs (correlation matrix), filtering (to keep only the strongest correlations, with Pearson coef. larger than 0.80 or  smaller than -0.8), and re-arranging it into a dataframe, this was how the data  `corr_dataset` looked like:
 
@@ -84,12 +88,7 @@ edges_att <- data.frame(TYPE = E(gD)$association)
 
 ```
 
-
-To build this visualization I used <a href="https://gephi.org/">GEPHI</a>, and *I highly recommend it*. Although there are packages that enable the visualization of networks inside R (and take my word, I tried all of them before adopting Gephi), none of them can produce figures as above in less than a few minutes and with minimum configuration.
-
->Gephi is the leading visualization and exploration software for all kinds of graphs and networks. Gephi is open-source and free. Runs on Windows, Mac OS X and Linux.
-
-it's necessary to convert the `nodes`, `edges` and their `attributes` into a *"gefx."* file. It can be done easily with the package `rgexf` for R:
+To load your network data in to `Gephi` it's necessary to convert the `nodes`, `edges` and their `attributes` into a *"gefx."* file. It can be done easily with the package `rgexf` for R:
 
 ```
 library("rgexf")
@@ -98,5 +97,4 @@ write.gexf(nodes = nodes[, c(1,3)], edges = edges[, 1:2],
             defaultedgetype = "undirected", output = "_your_filename.gexf")
 ```
 
-
-That's it! Once you import you *"gfx."* file into Gephi
+That's it! Once you import you *"gefx."* file into Gephi you'll have full control over t. Gephi lets you change the colors, edge thickness, and node sizes based on attributes (like the ones you exported from R), or based on network metricks such as `degree` and `betweenness`.
