@@ -153,8 +153,7 @@ a {
   -webkit-text-decoration-skip: objects; }
   a:hover {
     color: #025d45;
-    text-decoration: underline;
-    background-color: rgb(203, 223, 212); }
+    text-decoration: underline; }
 
 a:not([href]):not([tabindex]) {
   color: inherit;

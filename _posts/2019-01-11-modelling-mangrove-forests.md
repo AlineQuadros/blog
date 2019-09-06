@@ -12,9 +12,9 @@ Combining PLS-R and PCA to predict how biomass production might change depending
 
 Mangroves are fascinating coastal ecosystems. Unlike tropical or temperate forests, mangroves are not well studied so there's a lot we don't know about them. In 2017 I undertook a one-year long project to fill some gaps, and this post has a brief presentation of one of its outcomes. The full paper containing the results is this:
 
-<div class="alert-info"><hr>
+<hr>
 Aline Ferreira Quadros, Inga Nordhaus, Hauke Reuter, Martin Zimmer. *Modelling of mangrove annual leaf litterfall with emphasis on the role of vegetation structure.* Published in <a href="https://doi.org/10.1016/j.ecss.2018.12.012">Estuarine, Coastal and Shelf Science 218, 292–299 (2018) </a>
-<hr></div>
+<hr>
 
 ## Background  
 
@@ -27,7 +27,7 @@ Initially, my goal was to review published and unpublished papers (basically, a 
 
 While I was doing the reviews, I found two interesting sets of studies about the mangroves of Ajuruteua (north of Brazil). One set contained studies about the **vegetation structure** of mangrove stands (tree height, diameter, density, etc.), and another set had estimates of the **litterfall production** of these and other mangrove sites. Some studies even contained both information (the list of studies is at the end of this post). While most studies explained the distribution of litterfall along the year, based on climatic features, I noticed that none attempted to predict **how much** litterfall could be produced. That's how I came up with this research question:
 
-#### Can we predict the annual litterfall of a given mangrove site, just by knowing the features of the vegetation?   
+>Can we predict the annual litterfall of a given mangrove site, just by knowing the features of the vegetation?   
 
 
 Well, but why would be important to predict annual litterfall the first place? Litterfall is a big component (and a proxy) of the annual aboveground production of a forest, and this information is used to track how fast (and efficiently) the forest is growing, the amount of carbon and important nutrients that is made available to all trophic levels. Mangroves store huge amounts of carbon in the sediments. This is so special in terms of global ecology that this carbon received a special name: <a href="https://en.wikipedia.org/wiki/Blue_carbon">Blue Carbon</a>. Much of this carbon comes from the freshwater inflow from rivers, but a lot comes from the decomposition of the leaves shed by the trees everyday, __the leaf litterfall__.
@@ -35,7 +35,7 @@ Well, but why would be important to predict annual litterfall the first place? L
 
 <img src="/blog/assets/images/mangrove_npp.png">
 
-<div class="alert-lightblue"> Every year, mangroves shed about 57% of the total Net Primary Production (NPP). Globally, this represents an input of organic matter of about  6.7 Mg per Ha. In the mangroves of Ajuruteua, which are highly productive, this value is even bigger: 9.5 Mg per Ha. This biomass accumulates and decomposes in the sediment, or is exported to adjacent ecosystems. </div>
+Every year, mangroves shed about 57% of the total Net Primary Production (NPP). Globally, this represents an input of organic matter of about  6.7 Mg per Ha. In the mangroves of Ajuruteua, which are highly productive, this value is even bigger: 9.5 Mg per Ha. This biomass accumulates and decomposes in the sediment, or is exported to adjacent ecosystems.
 
 
 Could we predict how much biomass a mangrove will produce if we have basic information on the structure of its trees?
@@ -55,12 +55,12 @@ Basically, the steps needed to apply a PLS-R to your data are:
 * Predict responses for new data using the best model  
 
 
-The PCA step of this analysis really surprised me. Of course, I was expecting to find some structure in the data since the cross-correlation between the tree features is well known, but I never thought the PCA was going to show me the development (or **ecological sucession**) of the mangrove sites so clearly. The results are illustrated here:
+The PCA step of this analysis really surprised me. Of course, I was expecting to find some structure in the data since the cross-correlation between the tree features is well known, but I never thought the PCA was going to show me the development (or **ecological sucession**) of the mangrove sites so clearly. Check it out:
 
 <img src="/blog/assets/images/development.png">
 
 
-Results of a PCA analysis depicting the development (or succession) of the mangroves of the Ajuruteua. Ten features were used to ordinate the sites (black dots), corresponding to five features of each mangrove plant, *Rhizophora mangle* (Rm) and *Avicennia germinans* (Ag). In the top-right set we see the sites composed of a huge density of very small thin individuals (actually, species of *Avicennia* often form monospecific stands of dwarf trees like these). From the lower-right to the upper-left, we see the transition from young sites to mature sites, and the forest changes are indicated by the arrows. "Young" sites are dominated by *Avicennia germinans* (high relative density of this species). As the forest transitions to "intermediate" sites, the relative density of *Avicennia germinans* decreases (the sites become mixed), and the tree size is bigger (diameter and height). In the "mature" sites, *Rhizophora mangle* dominates and its basal area is larger, indicating a higher density of large trees.  
+This is the result a PCA depicting the development (or succession) of the mangroves of Ajuruteua. Ten features were used to ordinate the sites (black dots), corresponding to five features of each mangrove plant, *Rhizophora mangle* (Rm) and *Avicennia germinans* (Ag). In the top-right set we see the sites composed of a huge density of very small thin individuals (actually, species of *Avicennia* often form monospecific stands of dwarf trees like these). From the lower-right to the upper-left, we see the transition from young sites to mature sites, and the forest changes are indicated by the arrows. "Young" sites are dominated by *Avicennia germinans* (high relative density of this species). As the forest transitions to "intermediate" sites, the relative density of *Avicennia germinans* decreases (the sites become mixed), and the tree size is bigger (diameter and height). In the "mature" sites, *Rhizophora mangle* dominates and its basal area is larger, indicating a higher density of large trees.  
 
 
 Here's some useful functions to run the analysis with <a href="https://github.com/gastonstat/plsdepot">plsdepot</a> in R:  

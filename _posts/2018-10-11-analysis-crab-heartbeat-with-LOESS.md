@@ -9,17 +9,16 @@ tags: [featured]
 
 LOESS (aka local regression) is an ideal tool for the analysis of physiological signals, and can be used on the raw data for curve smoothing and peak detection.
 
-Scientists worldwide have been recording and analyzing the heartbeats of all animals you can think of. From the largest to the tiniest ones. That's because, in the same way your doctor can learn a lot from your health by monitoring your heart frequency, scientists can learn a lot about the physiology of animal too.
+Scientists worldwide have been recording and analyzing the heartbeats of all animals you can think of. From the largest to the tiniest ones. In this way, scientists learn a lot about the physiology of animals, in the same way doctors learn a lot about your health by monitoring your heart frequency.
 
-A couple years ago I collaborated on a project where scientists wanted to see how *mangrove crabs* were being affected by global warming. They used a system that records the heartbeats by an infra-red sensor attached to the crabs’ carapace connected to an oscilloscope. ) to get the crab's heartbeats by attaching small sensors to the crabs' back (_fun fact_ the crab's heart is not located on its "chest" but rather on its "back"). The crabs were then confined to a space where one or more environmental features were being manipulated. In this case, it was the water temperature. The experiment can be repeated with diferent individuals, different species, under diferent conditions, depending on the *research question*.
+A couple years ago I collaborated on a project where scientists were interested in how *mangrove crabs* were being affected by global warming. They used a system that records the heartbeats by an infra-red sensor attached to the crabs’ carapace and it's connected to an oscilloscope (_fun fact_ the crab's heart is not located on its "chest" but rather on its "back"). The crabs were then confined to a space where one or more environmental features were being manipulated. In this case, it was the water temperature. The experiment can be repeated with diferent individuals, different species, under diferent conditions, depending on the *research question*.
 
 <img src='/blog/assets/images/signal1.png'>  
 
-> Heart frequency is one of the most important physiological parameters of animals. Through the analysis of heartbeats, scientists can understand the conditions that stress animals, and how much of each stress they support until reaching a critical condition. This information is latter used to predict how different species will respond to environmental changes, such as global warming or ocean acidification.  
+> Heart frequency is one of the most important physiological parameters of animals. Scientists use this parameter to understand the conditions that stress animals, and how much of each stress they can tolerate before reaching a critical condition. This information is latter used to predict how different species will respond to environmental changes, such as global warming or ocean acidification.  
 
 
-
-Commercial devices such as Picoscope convert the analogical signal coming from the animal and convert it to a digital form that can be saved in text files and analyzed. Well, after an experiment like this is done, a researcher may end up with dozens hours of recordings per individual, and dozens of individuals.  
+Commercial devices such as Picoscope convert the analogical signal coming from the animal and convert it to a digital form that can be saved in text files and analyzed. After an experiment like this is done, a researcher may end up with dozens hours of recordings per individual, and dozens of individuals.  
 
 *Example of the data structure derived from an oscilloscope with two channels (simultaneous recordings of two sensors):*
 
@@ -37,40 +36,41 @@ Time	Channel A	Channel B
 0.009338	-0.5996887	0.1161229
 
 ```
-After exporting the data from the oscilloscope and importing it into R, applying the LOESS function is pretty simple and R has a built-in function `loess()`   ready to use. The most important parameter that is needed to tune the model is *span*. The parameter *span* ranges between 0 and 1, and controls the degree of smoothing.
+After exporting the data from the oscilloscope and importing it into R, applying the LOESS function is pretty simple and R has a built-in function `loess()` ready to use. The most important parameter that is needed to tune the model is *span*. The parameter *span* ranges between 0 and 1, and controls the degree of smoothing.
+
 
 ```
-
-# apply the LOESS function trying diferent values of span
+# apply the LOESS function
 y.loess <- loess(y ~ x, span=0.01, data.frame(x=time, y=beats))
 
-#
 y.predict <- predict(y.loess, data.frame(x=time))
 
 # save the predicted y values (smoothed) in a dataframe
 mat2 <- data.frame(time, y.predict)
 
-# find valleys
-b<- findValleys(y.predict)
-# select only the rows corresponding to peaks from the original dataframe
-piks <- mat2[b, ]
-piks <- piks[piks$y.predict <=0,]
+# find peaks
+b<- findPeaks(y.predict)
 
 ```
 
-And this is like the signal looks like after processing:  
+And this is how the signal looks like after processing:  
 
 
-<img src='/blog/assets/images/signal2.png' width=80%>
+<img src="/blog/assets/images/signal2.png">
 
 
->The top panel shows the raw signal (gray lines) and the curves (red) and peaks (green dots) detected using LOESS (local non-parametric regression). From there, we calculate the number of peaks per unit of time (beats per minute, per example), as shown in the second panel. This series of data is then plotted against the variation of another factor (water temperature, for instance) to monitor the animal's response along time.
+The top panel shows the raw signal (gray lines), and the curves (red) and peaks (green dots) detected using LOESS (local non-parametric regression). From that we can calculate the number of peaks per unit of time (beats per minute, for example), as shown in the second panel. This series of data is then plotted against the variation of another factor (water temperature, oxygen, etc.) to monitor the animal's response along time.
 
-The tricky thing is that, the heartbeat alone tells little about an animal's condition. The interesting question is to see how the heart frequency changes upon the changes in the variables being manipulated (temperature, gas concentration, light, etc.). These variables, in turn, are being recorded by their own specific sensors, and the researcher will have to integrate these data at some point.
+The tricky thing is that the heartbeat alone tells little about an animal's condition. The interesting question is how the heart frequency changes upon changes in the variables being manipulated (temperature, gas concentration, light, etc.). These variables, in turn, are being recorded by their own specific sensors, and the researcher will have to integrate these data at some point.
 
 In situations like this it is really handy to know how to code in languages like R and Python. While the modelling required for this project (a few simple linear models), there's a lot of data import and export, merging, and transformations.
 
-
+<table>
+<tr>
+<td>
 This project has lots of interesting findings, and the partial results were presented in November 2018 by the author of the study, **Pedro Jimenez**, and can be read <a href="/blog/assets/images/study_pedro.pdf"> here</a>. There's more coming up!
-
-<embed width="191" height="207" name="plugin" src="/blog/assets/images/study_pedro.pdf" type="application/pdf">
+</td>
+<td>
+<embed width="391" height="407" name="plugin" src="/blog/assets/images/study_pedro.pdf" type="application/pdf">
+</td>
+</table>

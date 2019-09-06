@@ -18,7 +18,7 @@ In this project I used *network analysis* to study the organization of microbial
 
 <img src="/blog/assets/images/net1.png">
 
-The black lines indicate a strong association (Spearman correlation coefficient > 0.8), whereas the red lines indicate a strong negative association, i.e., groups of organisms that rarely co-occurred in a sample. Figure produced using Gephi (see below).
+The black lines indicate a strong association (Spearman correlation coefficient > 0.8), whereas the red lines indicate a strong negative association, i.e., groups of organisms that rarely co-occurred in a sample.
 
 To build this visualization I used <a href="https://gephi.org/">GEPHI</a>, and *I highly recommend it*. Although there are packages that enable the visualization of networks inside R (and take my word, I tried all of them before adopting Gephi), none of them can produce figures as above in less than a few minutes and with minimum configuration.
 
@@ -97,4 +97,4 @@ write.gexf(nodes = nodes[, c(1,3)], edges = edges[, 1:2],
             defaultedgetype = "undirected", output = "_your_filename.gexf")
 ```
 
-That's it! Once you import you *"gefx."* file into Gephi you'll have full control over t. Gephi lets you change the colors, edge thickness, and node sizes based on attributes (like the ones you exported from R), or based on network metricks such as `degree` and `betweenness`.
+That's it! Once you import you *"gefx."* file into Gephi you'll have full control over t. Gephi lets you change the colors, edge thickness, and node sizes based on attributes (like the ones you exported from R), or based on network metrics such as `degree` and `betweenness`.
