@@ -11,7 +11,7 @@ LOESS (aka local regression) is an ideal tool for the analysis of physiological 
 
 Scientists worldwide have been recording and analyzing the heartbeats of all animals you can think of. From the largest to the tiniest ones. In this way, scientists learn a lot about the physiology of animals, in the same way doctors learn a lot about your health by monitoring your heart frequency.
 
-A couple years ago I collaborated on a project where scientists were interested in how *mangrove crabs* were being affected by global warming. They used a system that records the heartbeats by an infra-red sensor attached to the crabs’ carapace and it's connected to an oscilloscope (_fun fact_ the crab's heart is not located on its "chest" but rather on its "back"). The crabs were then confined to a space where one or more environmental features were being manipulated. In this case, it was the water temperature. The experiment can be repeated with diferent individuals, different species, under diferent conditions, depending on the *research question*.
+A couple years ago I collaborated on a project where scientists were interested in how *mangrove crabs* were being affected by global warming. They recorded the heartbeats using infra-red sensors attached to the crabs’ carapace and to and an oscilloscope (_fun fact_ did you know that the crab's heart is not located on its "chest" but rather on its "back"?!). The crabs were then confined to a space where one or more environmental features were being manipulated. In this case, it was the water temperature. The experiment can be repeated with diferent individuals, different species, under diferent conditions, depending on the *research question*.
 
 <img src='/blog/assets/images/signal1.png'>  
 
@@ -20,7 +20,7 @@ A couple years ago I collaborated on a project where scientists were interested 
 
 Commercial devices such as Picoscope convert the analogical signal coming from the animal and convert it to a digital form that can be saved in text files and analyzed. After an experiment like this is done, a researcher may end up with dozens hours of recordings per individual, and dozens of individuals.  
 
-*Example of the data structure derived from an oscilloscope with two channels (simultaneous recordings of two sensors):*
+**Example of the data obtained from an oscilloscope with two channels (simultaneous recordings of two sensors):**
 
 ```
 Time	Channel A	Channel B
@@ -34,8 +34,8 @@ Time	Channel A	Channel B
 0.006675	-0.5548265	0.1217689
 0.008004	-0.5548265	0.1190222
 0.009338	-0.5996887	0.1161229
-
 ```
+
 After exporting the data from the oscilloscope and importing it into R, applying the LOESS function is pretty simple and R has a built-in function `loess()` ready to use. The most important parameter that is needed to tune the model is *span*. The parameter *span* ranges between 0 and 1, and controls the degree of smoothing.
 
 
@@ -46,24 +46,38 @@ y.loess <- loess(y ~ x, span=0.01, data.frame(x=time, y=beats))
 y.predict <- predict(y.loess, data.frame(x=time))
 
 # save the predicted y values (smoothed) in a dataframe
-mat2 <- data.frame(time, y.predict)
+pred_dataset <- data.frame(time, y.predict)
 
 # find peaks
-b<- findPeaks(y.predict)
+peaks <- findPeaks(y.predict)
+
+# alternatively, you can also find valleys
+valleys <- findValleys(y.predict)
 
 ```
 
 And this is how the signal looks like after processing:  
 
 
-<img src="/blog/assets/images/signal2.png">
+<img src="/blog/assets/images/signal2.png" style="width:80%;">
 
 
 The top panel shows the raw signal (gray lines), and the curves (red) and peaks (green dots) detected using LOESS (local non-parametric regression). From that we can calculate the number of peaks per unit of time (beats per minute, for example), as shown in the second panel. This series of data is then plotted against the variation of another factor (water temperature, oxygen, etc.) to monitor the animal's response along time.
 
-The tricky thing is that the heartbeat alone tells little about an animal's condition. The interesting question is how the heart frequency changes upon changes in the variables being manipulated (temperature, gas concentration, light, etc.). These variables, in turn, are being recorded by their own specific sensors, and the researcher will have to integrate these data at some point.
+The tricky thing is that the heartbeat alone tells little about an animal's condition. The interesting question is how the heart frequency changes upon changes in the variables being manipulated (temperature, gas concentration, light, etc.). These variables, in turn, are being recorded by their own specific sensors, and the researcher will have to integrate these data at some point. In situations like this it is really handy to know how to code in languages like R and Python. While the statistics and models required for this project were relatively simple, there's a lot of data import and export, merging, and transformation.
 
-In situations like this it is really handy to know how to code in languages like R and Python. While the modelling required for this project (a few simple linear models), there's a lot of data import and export, merging, and transformations.
+**Example of a data file containing the simultaneous readings of atmospheric pressure, temperature and air saturation**
+
+```
+Date & Time	       Timestamp code	  Barometric pressure [hPa]	 temp [°C]	O2 [% air saturation]
+09-Dez-14 1:12:13  PM	3587778733	  1013.00	                   27.07	    91.2
+09-Dez-14 1:12:24  PM	3587778734 	  1013.00	                   27.08	    91.1
+09-Dez-14 1:12:35  PM	3587778735 	  1013.00	                   27.09	    91.0
+09-Dez-14 1:12:46  PM	3587778736 	  1013.00	                   27.08	    91.1
+
+```
+As you can see, here the data was obtained regularly in 10 second intervals, whereas the heartbeat data (which is also in another format) is calculated in the scale of minutes. That's another example of the usefulness of LOESS. After the data (signals) were smoothed, **interpolation** can be used to predict the values at a given time.
+
 
 <table>
 <tr>
@@ -71,6 +85,7 @@ In situations like this it is really handy to know how to code in languages like
 This project has lots of interesting findings, and the partial results were presented in November 2018 by the author of the study, **Pedro Jimenez**, and can be read <a href="/blog/assets/images/study_pedro.pdf"> here</a>. There's more coming up!
 </td>
 <td>
-<embed width="391" height="407" name="plugin" src="/blog/assets/images/study_pedro.pdf" type="application/pdf">
+<embed width="291" height="307" name="plugin" src="/blog/assets/images/study_pedro.pdf" type="application/pdf">
 </td>
+</tr>
 </table>
