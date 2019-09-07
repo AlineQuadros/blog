@@ -38,7 +38,7 @@ This is a classic example of __nested data__ (mesocosms belong to blocks, which 
 
 To analyse this data, I used a __mixed effect model__. Mixed effect models (that's why the "mixed") quantify the effects of the desired treatments (*fixed effects*) while taking into account the variation that is due to the influence of other, unknown factors (*random effects*).
 
-Here's how to run a __mixed effects model__ in R you can use the packages `lme4` and `lmertest`. Here I used `lme4` and the function `lmer()` to compare 5 models. In `lmer()` you can use restricted maximum likelihood-fitted models (REML=true) to compare models that have different random effects (which was not my case).
+To run a __mixed effects model__ in R you can use the packages `lme4` and `lmertest`. Here I used `lme4` and the function `lmer()` to compare 5 models. In `lmer()` you can use restricted maximum likelihood-fitted models (REML=true) to compare models that have different random effects (which was not my case).
 
 ```
 library(lme4)
@@ -71,7 +71,7 @@ summary(m_4)
 anova(m_3, m_1)
 ```
 
-An important step in every linear modeling is to check the distribution of residuals:
+An important step in every linear modelling  is to check the distribution of residuals:
 
 ```
 qqnorm(resid(m_3),  main = "Normal Q-Q Plot")
