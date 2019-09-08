@@ -7,34 +7,39 @@ image: assets/images/gcms.jpg
 
 ---
 
+Metabolomic studies in ecology are helping to decipher systems previously considered as black-boxes. It can be used to track organic pollutants in the environment, to compare the functions and metabolism of many species.
 
-> Metabolomics
+> Metabolomics is the study of substrates and products of metabolism. It encompasses the large-scale study of small molecules, (aka metabolites) found within cells, tissues, soils, water, gases, etc.
+
+
+The gas chromatography–mass spectrometry, or ___GC-MS___, is one of the main tools used to analyze the biological compounds of a variety of complex samples. The gas-chromatograph promotes separation of the molecules and the mass-spectrometer downstream captures, ionizes, accelerates, deflects, and detects each molecule.
 
 #### Processing and transforming raw GC-MS data in R
 
-After the deconvolution of the original signal, the GC-MS exports a file containing
+After the deconvolution of the original signal, the computer coupled to the GC-MS exports a file containing all compounds identified in all samples, as illustrated below (RT = retention time, m/z = mass).
 
 <img src="/blog/assets/images/file_header.png">
 
-The goal is to identify common compounds across samples, based on retention time and mass, and taking into account that the retention times may vary slightly between diferent runs.
+One of the steps in a metabolomics study is to
+We need to identify common compounds across samples, based on retention times and mass, taking into account that the retention times may vary slightly between diferent runs. The goal is to obtain a **compounds x samples** matrix that tells whether a compound (c_1, c_2, c_3...) was present in a given sample. Once the data is in this format it can be further analyzed using PCAs, clustering, K-means, etc.
+
+**Example of the output of this analysis, a compounds x samples matrix:**
 
 ```
 sample	c_1	c_2	c_3	c_4	c_5 ...
-001	    0	  0	  0	  0	  1
+001     0	  0	  0	  0	  1
 002	    0	  0	  1	  0	  0
 003	    0	  0	  0	  0	  0
 004	    0	  0	  1	  0	  0
 005	    0	  1	  0	  1	  0
-006	    0	  0	  0	  0	  0
-007	    0	  0	  1	  0	  0
-021	    1   0   1   1   0
-028	    0	  1	  0	  0	  0
-029   	0	  1	  0	  0	  1
 ...
 
 ```
+Additionally, the `peak area` tells how much of each compound was present in each sample, so besides a presence-absence matrix, a matrix of relative/absolute abundances can also be obtained.
 
-Import the original files (Excel format) using the package `xlsx` for R.
+#### Processing and transforming raw GC-MS data in R
+
+Import the original files (Excel format) using the package `xlsx` for R and extract shorter names to assign to each sample, based on the file path:
 
 ```
 library(xlsx)
@@ -53,7 +58,7 @@ input_t$sample_name <- as.factor(input_t$sample_name)
 input_t$rt <- as.character(round(input_t$rt, digits = 2))
 ```
 
-This is the data structure:
+This is the data structure after the pre-processing:
 ```
 str(input_t)
 
@@ -63,16 +68,16 @@ str(input_t)
 ##  $ base_peak    : num  105 110 117 96.1 103 115 108 97.1 107 91 ...
 ##  $ mz           : num  105 110 117 96.1 103 115 108 97.1 107 91 ...
 ##  $ area         : num  174324 2568353 256358 980743 425833 ...
-##  $ sample_name  : Factor w/ 27 levels "leaf_1","leaf_2","leaf_3","leaf_4",..:
+##  $ sample_name  : Factor w/ 16 levels "001.D","002.D","003.D","004.D",..:
 ```
-Create the dataframe that will keep the rows sorted per retention time
+Create the dataframe that will keep the rows sorted per retention time:
 
 ```
 dataset_rt <- data.frame(sequential_rt=1:6000, stringsAsFactors = FALSE)
 seqs <- seq(0.01, run_time, by=0.01)
 dataset_rt$sequential_rt <- as.character(seqs, digits = 2)
 ```
-Organize the dataset
+Organize the dataset:
 
 ```
 options(digits = 3)
@@ -82,12 +87,16 @@ for (l in 1:nlevels(input_t$sample_name)) {
   colu <- ncol(dataset_rt)
   dataset_rt[, colu+1] <- 0
   dataset_rt[, colu+2] <- 0
-  colnames(dataset_rt)[colu+1] <- paste(as.character(levels(input_t$sample_name)[l]), "__ID")
-  colnames(dataset_rt)[colu+2] <- paste(as.character(levels(input_t$sample_name)[l]), "__mz")
+  colnames(dataset_rt)[colu+1] <- paste(as.character(
+                                  levels(input_t$sample_name)[l]), "__ID")
+  colnames(dataset_rt)[colu+2] <- paste(as.character(
+                                  levels(input_t$sample_name)[l]), "__mz")
   for (lin in 2 : nrow(sub)) {  
     lin2 <- match(sub[lin, "rt"], dataset_rt$sequential_rt)
-    dataset_rt[lin2, colu+1] <- sub[lin, "original_peak"]                # ID = peak number
-    dataset_rt[lin2, colu+2] <-  as.double(sub[lin, "mz"], digits = 1)   # mass
+    # ID = peak number
+    dataset_rt[lin2, colu+1] <- sub[lin, "original_peak"]  
+    # mass           
+    dataset_rt[lin2, colu+2] <-  as.double(sub[lin, "mz"], digits = 1)
   }
 }
 dataset_rt_red<-data.frame(stringsAsFactors = FALSE)
@@ -104,14 +113,14 @@ for (m in 1:nrow(dataset_rt)){
 
 dataset_rt_red <- dataset_rt_red[, seq(from = 3, to = nc, by=2) ]
 ```
-Set the variation in retention time to be used as a buffer
+Set the variation in retention time to be used as a buffer:
 
 ```
 buf <- 5
 nc2 <- ncol(dataset_rt_red)
 ```
 
-Create dataset of all compounds taking the buffer above into account
+Create dataset of all compounds taking the buffer above into account:
 
 ```
 dataset_list <- data.frame(stringsAsFactors = FALSE)
@@ -164,7 +173,7 @@ while (p <= nrow(dataset_list_ord)){
 }
 ```
 
-Finally, create a matrix with the presence/absence of each compound in each sample
+Finally, create a matrix with the presence/absence of each compound in each sample:
 
 ```
 dataset_final <- matrix(nrow=ncol(dataset_rt_red), ncol=nrow(dataset_compounds)+1)
@@ -188,28 +197,13 @@ for (cc in 1:ncol(dataset_rt_red)){
 }
 dataset_final[is.na(dataset_final[,]) ] <- 0
 ```
-Here's how the `dataset_final` looks like:
-
-```
-sample	V2	compound_1	compound_2	compound_3	compound_4	compound_5
-1	#NAME?	0	0	0	0	0	0
-2	_125.D __mz	0	0	0	0	1	0
-3	_158.D __mz	0	0	1	0	0	0
-4	_175.D __mz	0	0	0	0	0	0
-5	_177.D __mz	0	0	1	0	0	0
-6	_287.D __mz	0	1	0	0	0	0
-7	_293.D __mz	0	0	0	0	0	0
-8	120.D __mz	0	0	0	0	0	0
-9	121.D __mz	0	0	0	0	0	0
-10	122.D __mz	0	0	0	0	1	0
-
-
-```
 
 #### Multivariate analyses
 
 Now that you transformed the raw GC-MS data into a presence/absence matrix of **compounds x samples**,
 you can use several multivariate analyses to compare your sample's composition and to know more about them.
+
+
 Here's an example of a simple **cluster analysis**, which clusters samples based on a measure of dissimilarity (distance). The function `hclust()` does that in R:
 
 ```
@@ -218,4 +212,4 @@ rownames(datt) <- dataset_final$sample
 simi <- hclust(dist(datt))
 plot(simi)
 ```
-<img src="/blog/assets/images/cluster.jpg">
+<img src="/blog/assets/images/cluster.png">
