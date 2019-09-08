@@ -16,7 +16,7 @@ Mangroves are fascinating coastal ecosystems. Unlike tropical or temperate fores
 Aline Ferreira Quadros, Inga Nordhaus, Hauke Reuter, Martin Zimmer. *Modelling of mangrove annual leaf litterfall with emphasis on the role of vegetation structure.* Published in <a href="https://doi.org/10.1016/j.ecss.2018.12.012">Estuarine, Coastal and Shelf Science 218, 292–299 (2018)</a>
 <hr>
 
-#H# Background  
+#### Background  
 
 
 Initially, my goal was to review published and unpublished papers (basically, a manual text-mining, you can read more about it <a href="https://alinequadros.github.io/AlineQuadros/playing-data-detective/">in this post</a>) and extract some specific information about mangrove plants species, to build a structured dataset of traits (which you can access here: <a href="https://doi.org/10.3897/BDJ.5.e22089">Dataset of "true mangroves" plant species traits</a>).
@@ -30,7 +30,9 @@ While I was doing the reviews, I found two interesting sets of studies about the
 >Can we predict the annual litterfall of a given mangrove site, just by knowing the features of the vegetation?   
 
 
-But why is it important to predict annual litterfall the first place? Litterfall is a big component (and a proxy) of the annual aboveground production of a forest, and this information is used to track how fast (and efficiently) the forest is growing, the amount of carbon and important nutrients that is made available to all trophic levels. Mangroves store huge amounts of carbon in the sediments. This is so special in terms of global ecology that this carbon received a special name: <a href="https://en.wikipedia.org/wiki/Blue_carbon">Blue Carbon</a>. Much of this carbon comes from the freshwater inflow from rivers, but a lot comes from the decomposition of the leaves shed by the trees everyday, __the leaf litterfall__.
+But why is it important to predict annual litterfall the first place? Litterfall is a big component (and a proxy) of the annual aboveground production of a forest, and this information is used to track how fast (and efficiently) the forest is growing, the amount of carbon and important nutrients that is made available to all trophic levels.
+
+Mangroves store huge amounts of carbon in the sediments. This is so special in terms of global ecology that this carbon received a special name: <a href="https://en.wikipedia.org/wiki/Blue_carbon">Blue Carbon</a>. Much of this carbon comes from the freshwater inflow from rivers, but a lot comes from the decomposition of the leaves shed by the trees everyday, __the leaf litterfall__.
 
 
 <img src="/blog/assets/images/mangrove_npp.png">
@@ -141,12 +143,9 @@ How can this model be used? Ideally, we could visit a few mangrove stands, colle
 
 
 But is this helpful? **YESSS it is!!**  
-Consider that measuring, identifying, and counting trees takes a few hours or a few days (depending on forest size, accessibility, etc.), but estimating the annual biomass production __takes at least an year__. And researchers need to set traps to collect litterfall, visit the mangrove weekly or monthly for an year to empty them, and process the leaves in the laboratory (wash, dry, weight). **That's how annual litterfall is traditionally obtained**. As you can see, this is a lot of work.
+Consider that measuring, identifying, and counting trees takes a few hours or a few days (depending on forest size, accessibility, etc.), but estimating the annual biomass production __takes at least an year__. And researchers need to set traps to collect litterfall, visit the mangrove weekly or monthly for an year to empty them, and process the leaves in the laboratory (wash, dry, weight). **That's how annual litterfall is traditionally obtained**. As you can see, this is a lot of work. And understanding biomass production is crucial if we want to understand nutrient cycling in mangroves and the stability of carbon stocks.
 
-And understanding biomass production is crucial if we want to understand nutrient cycling in mangroves and the stability of carbon stocks. That's why I started looking into this in the first place: Can we obtain more data more quickly, and use a model to predict Well, I hope . Because science is always auto-correcting itself, and we learn a little bit with every new model, table, dataset, chart that comes around.
-
-We might not be there yet, because, as I mentioned above, this was the first attempt to. Ideally, once a robust model is stablished, and the coefficients for more species, we could go to a mangrove forest, measure some trees (width and height, density, basal area) and predict how much .
-
+However, this was only the first attempt to develop such a predictive model, and it is limited in many aspects. I hope it will serve as a "guide" for future studies based on more robust and comprehensive data. Science is always auto-correcting itself, and we learn a little bit more with every new model, table, dataset, or chart that comes around.
 
 
 **References containing the vegetation and litterfall data:**

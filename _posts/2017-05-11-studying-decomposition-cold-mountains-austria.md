@@ -8,10 +8,13 @@ tags: [featured]
 ---
 
 This was one of my all-time-favorite experiments. We used mixed-models and the ___space-for-time___ approach to explore the connections between temperature, soil animals, and litter decomposition.
+
+
 The idea of ___space-for-time___ is to identify natural gradients (**the
 space**), with two or more contrasting conditions at the endpoints that represent
-current and future scenarios (**the time**). Our
-SFT approach to study the effects of temperature increase used the
+current and future scenarios (**the time**).
+
+Our SFT approach to study the effects of temperature increase used the
 natural environmental gradients of mountain slopes. Altitudinal gradients in mountains
 provide an excellent opportunity to address the abiotic effects on
 ecological processes under field conditions: some abiotic factors change
@@ -19,6 +22,7 @@ in a predictable way with increasing altitude, while biotic factors, such
 as fauna and plant communities, remain similar, at least within altitudinal
 ecotones (e.g. montane, alpine, nival).
 
+**Here's the link for the full publication:**
 <hr>
 Jenny Faber, Aline Ferreira Quadros,  Martin Zimmer. *A Space-For-Time approach to study the effects of increasing temperature on leaf litter decomposition under natural conditions* Published in <a href="https://doi.org/10.1016/j.soilbio.2018.05.010">Sio Biology and Biochemistry 123, 250–256 (2018)</a>
 <hr>
@@ -27,16 +31,11 @@ Jenny Faber, Aline Ferreira Quadros,  Martin Zimmer. *A Space-For-Time approach 
 
 <img src="/blog/assets/images/faber_experimentaldesign.png">
 
-Our experimental design included:
+Our experimentt was replicated in 5 mountains. There were 2 sites per mountain (diferent altitudes), 5 blocks of mesocosms per site, and 4 mesocosms per block (one for each level of 2 treatments).
 
-* 5 mountains to replicate the study
-* 2 sites per mountain (diferent altitudes)
-* 5 blocks of mesocosms per site
-* 4 mesocosms per block
+This is a classic example of __nested data__ (mesocosms belong to blocks, which belong to sites, which belong to mountains...). Experiments like this are necessary to isolate (or to account for) the effects of other variables that might influence the results.
 
-This is a classic example of __nested data__ (mesocosms belong to blocks, which belong to sites, which belong to mountains...). Experiments like this are necessary to isolate (or to account for) the effects of other variables that might influence the results. So, in our case,
-
-To analyse this data, I used a __mixed effect model__. Mixed effect models (that's why the "mixed") quantify the effects of the desired treatments (*fixed effects*) while taking into account the variation that is due to the influence of other, unknown factors (*random effects*).
+To analyze this data, I used a __mixed effect model__. Mixed effect models quantify the effects of the desired treatments (*fixed effects*) while taking into account the variation that is due to the influence of other, unknown factors (*random effects*). That's why the name "mixed".
 
 To run a __mixed effects model__ in R you can use the packages `lme4` and `lmertest`. Here I used `lme4` and the function `lmer()` to compare 5 models. In `lmer()` you can use restricted maximum likelihood-fitted models (REML=true) to compare models that have different random effects (which was not my case).
 
@@ -81,8 +80,7 @@ shapiro.test(residuals(m_3))
 
 Once the residuals looks good, you can check the **model significance**, or **effect size**.
 
-To calculate the EFFECT SIZEs of a mixed-effects model in R, the function `sem.model.fits()` from package `piecewiseSEM` can be used. The **marginal effect** indicate the % of variance explained by the fixed factors, while then
-**conditional effect** indicate the % of variance explained by the fixed and random factors.
+To calculate the EFFECT SIZEs of a mixed-effects model in R, the function `sem.model.fits()` from package `piecewiseSEM` can be used. The **marginal effect** indicate the % of variance explained by the fixed factors, while then **conditional effect** indicate the % of variance explained by the fixed and random factors.
 
 ```
 library(piecewiseSEM)

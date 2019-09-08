@@ -7,21 +7,17 @@ image: assets/images/gcms.jpg
 
 ---
 
-Metabolomic studies in ecology are helping to decipher systems previously considered as black-boxes. It can be used to track organic pollutants in the environment, to compare the functions and metabolism of many species.
+Metabolomic studies are helping to decipher ecological processes previously considered as black-boxes. I got involved in this super interesting field many years ago, when I was interested to learn how different soil animals processed diferent sources of cellulose. Although *cellulose is the most abundant organic polymer on Earth*, yet we know very little about its transformations in nature.
 
 > Metabolomics is the study of substrates and products of metabolism. It encompasses the large-scale study of small molecules, (aka metabolites) found within cells, tissues, soils, water, gases, etc.
 
-
-The gas chromatography–mass spectrometry, or ___GC-MS___, is one of the main tools used to analyze the biological compounds of a variety of complex samples. The gas-chromatograph promotes separation of the molecules and the mass-spectrometer downstream captures, ionizes, accelerates, deflects, and detects each molecule.
-
-#### Processing and transforming raw GC-MS data in R
-
-After the deconvolution of the original signal, the computer coupled to the GC-MS exports a file containing all compounds identified in all samples, as illustrated below (RT = retention time, m/z = mass).
+The gas chromatography–mass spectrometry, or ___GC-MS___, is one of the main tools in metabolomics studies. The gas-chromatograph promotes separation of the molecules and the mass-spectrometer downstream captures, ionizes, accelerates, deflects, and detects each molecule. After the deconvolution of the original signal, the computer coupled to the GC-MS exports a file containing all compounds identified in all samples, as illustrated below (RT = retention time, m/z = mass).
 
 <img src="/blog/assets/images/file_header.png">
 
-One of the steps in a metabolomics study is to
-We need to identify common compounds across samples, based on retention times and mass, taking into account that the retention times may vary slightly between diferent runs. The goal is to obtain a **compounds x samples** matrix that tells whether a compound (c_1, c_2, c_3...) was present in a given sample. Once the data is in this format it can be further analyzed using PCAs, clustering, K-means, etc.
+The most basic aims of a metabolomics study are *to characterize and compare samples** based on a large amount of possible componunds. To that end, we need to identify common compounds across samples, based on retention times and mass, taking into account that the retention times may vary slightly between diferent runs.
+
+The goal of this scrip was to process the original data to obtain a **compounds x samples** matrix that tells whether a compound (c_1, c_2, c_3...) was present in a given sample. Once the data is in this format it can be further analyzed using PCAs, clustering, K-means, etc. 
 
 **Example of the output of this analysis, a compounds x samples matrix:**
 
@@ -35,7 +31,7 @@ sample	c_1	c_2	c_3	c_4	c_5 ...
 ...
 
 ```
-Additionally, the `peak area` tells how much of each compound was present in each sample, so besides a presence-absence matrix, a matrix of relative/absolute abundances can also be obtained.
+Additionally, the `peak area` tells how much of each compound was present in each sample, so besides a presence-absence matrix, a matrix of relative/absolute abundances can also be obtained. In this script I'll deal only with presence/absence.
 
 #### Processing and transforming raw GC-MS data in R
 
