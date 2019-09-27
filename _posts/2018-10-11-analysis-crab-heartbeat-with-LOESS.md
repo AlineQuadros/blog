@@ -61,7 +61,7 @@ valleys <- findValleys(y.predict)
 And this is how the signal looks like after processing:  
 
 
-<img src="/blog/assets/images/signal2.png" style="width:80%;">
+<img src="/blog/assets/images/signal2.png" style="width:80%">
 
 
 The top panel shows the raw signal (gray lines), and the curves (red) and peaks (green dots) detected using LOESS (local non-parametric regression). From that we can calculate the number of peaks per unit of time (beats per minute, for example), as shown in the second panel. This series of data is then plotted against the variation of another factor (water temperature, oxygen, etc.) to monitor the animal's response along time.

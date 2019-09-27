@@ -85,10 +85,12 @@ To calculate the EFFECT SIZEs of a mixed-effects model in R, the function `sem.m
 ```
 library(piecewiseSEM)
 
-varfix <- sem.model.fits(m_3)[5]
-vartot <- sem.model.fits(m_3)[6]
-varrand <- as.numeric(sem.model.fits(m_3)[6]) - as.numeric(sem.model.fits(m_3)[5])
+var_total <- sem.model.fits(m_3)[6]              # conditional effect
+var_fixed <- sem.model.fits(m_3)[5]              # marginal effect
+var_random <- as.numeric(var_total - var_fixed)
 
 ```
 
-<img src="/blog/assets/images/faber_fig3.png"  style="width:70%;">
+Here's a plot of the data that shows our main findings: 
+
+<img src="/blog/assets/images/faber_fig3.png"  style="width:70%">

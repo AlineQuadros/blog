@@ -9,14 +9,19 @@ tags: [featured, datasets, unstructured data]
 ---
 
 
-Back in 2017, when I was a research assistant at the <a href="">Leibniz Institute for Marine Tropical Research</a> I've spent a few months doing text-mining of published and unpublished (thesis and dissertations) data.
+Back in 2017, when I was a research assistant at the <a href="https://www.leibniz-zmt.de/en/">Leibniz Institute for Tropical Marine Research</a> I've spent a few months doing text-mining of published and unpublished (thesis and dissertations) data.
 
-My goal was to compile and organize some important data that was scattered over and inaccessible (published)
+My goal was to compile and organize some important data that was scattered over many publications, most of which were  inaccessible to the general public (print-only). After long visits to the Institute's library, and a few months of work, I was able to assemble a structured dataset of ___Traits of True Mangrove species___.
 
-After long visits to the Institute's library, and a few months of work, I was able to assemble a structured dataset
-The full dataset is fully open-access. It is currently sitting on the and can be downloaded here
+>__Traits__ are quantitative and qualitative features of living beings that help researchers to model the ecology and behavior of species, and are extremely useful in **quantitative ecology** these days.
 
-> Here a dataset is presented with 2364 records of traits of "true mangroves" species, gathered from 88 references (published articles, books, theses and dissertations). The dataset contains information on 107 quantitative traits and 18 qualitative traits for 55 species of "true mangroves" (sensu Tomlinson 2016). Most traits refer to components of living trees (mainly leaves), but litter traits were also included.
+Here's a summary of the content of this dataset:
+
+* 2364 records of traits of "true mangroves" species
+* 107 quantitative traits
+* 18 qualitative traits
+* 55 species of "true mangroves" (sensu Tomlinson 2016)
+* 88 sources (published articles, books, theses and dissertations)
 
 **Here's the link for the full publication (Open-access):**
 <hr>
@@ -25,4 +30,4 @@ Aline Ferreira Quadros & Martin Zimmer. *Dataset of "true mangrove" plant specie
 
 The dataset is currently stored in **Zenodo**: https://zenodo.org/record/802990
 
-Well, I did this manually and I am very proud of this small contribution. But, why not take this to the next level? What about analyzing 90000 publications, instead of 90? Inspired by the recent advances of **Natural language processing** (NLP), I .
+Well, this was a manual text-mining, and I am very proud of this small contribution. But, why not take this to the next level? What about analyzing the content of thousands of publications? Inspired by the recent advances of **Natural language processing** (NLP), I did a deeper text-mining of mangrove ecology by **extracting information from the titles and abstracts** of publications. You can read more about it in <a href="https://alinequadros.github.io/blog/NLP-knowledge-discovery-science-literature/">this blog post</a>
