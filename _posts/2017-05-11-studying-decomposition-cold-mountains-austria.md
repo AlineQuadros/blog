@@ -24,7 +24,7 @@ ecotones (e.g. montane, alpine, nival).
 
 **Here's the link for the full publication:**
 <hr>
-Jenny Faber, Aline Ferreira Quadros,  Martin Zimmer. *A Space-For-Time approach to study the effects of increasing temperature on leaf litter decomposition under natural conditions* Published in <a href="https://doi.org/10.1016/j.soilbio.2018.05.010">Sio Biology and Biochemistry 123, 250–256 (2018)</a>
+Jenny Faber, Aline Ferreira Quadros,  Martin Zimmer. *A Space-For-Time approach to study the effects of increasing temperature on leaf litter decomposition under natural conditions* Published in <a href="https://doi.org/10.1016/j.soilbio.2018.05.010">Soil Biology and Biochemistry 123, 250–256 (2018)</a>
 <hr>
 
  **Illustration of our experimental design**
@@ -91,4 +91,4 @@ varrand <- as.numeric(sem.model.fits(m_3)[6]) - as.numeric(sem.model.fits(m_3)[5
 
 ```
 
-<img src="/blog/assets/images/faber_fig3.png">
+<img src="/blog/assets/images/faber_fig3.png"  style="width:70%;">
