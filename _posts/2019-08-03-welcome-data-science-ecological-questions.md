@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Welcome to my blog | Bits of data science applied to ecological questions"
+title:  "Welcome to my blog | Data science applied to ecological questions"
 author: aline
 categories: [ data-science ]
 image: assets/images/welcome_blog.png
@@ -19,4 +19,4 @@ I started my journey into data analysis a long time ago, as most undergrads do, 
 Nowadays, I'm exploring the world of *machine learning* with Python and thinking how to apply *artificial intelligence* to solve applied environmental issues. I'm extremely interested in **NLP** (Natural Language Processing) and how it can be used to extract **unstructured information** from scientific literature and convert it into structure datasets that can be mined. I already wrote a post about my first attempt to dive into NLP, which you can read <a href="https://alinequadros.github.io/blog/NLP-knowledge-discovery-science-literature">here</a>. There's much more coming up!
 
 
-*Figure adapted from <a href="https://www.freepik.com/free-photos-vectors/business">Business vector created by freepik - www.freepik.com</a>
+<small>*Figure adapted from* <a href="https://www.freepik.com/free-photos-vectors/business">Business vector created by freepik - www.freepik.com</a> </small>
