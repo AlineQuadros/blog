@@ -84,7 +84,7 @@ As you can see, here the data was obtained regularly in 10 second intervals, whe
 <table>
 <tr>
 <td>
-This project has lots of interesting findings, and the partial results were presented in November 2018 by the author of the study, **Pedro Jimenez**, and can be read <a href="/blog/assets/images/study_pedro.pdf"> here</a>. There's more coming up!
+This project has lots of interesting findings, and the partial results were presented in November 2018 by the author of the study, Pedro Jimenez, and can be read <a href="/blog/assets/images/study_pedro.pdf"> here</a>. There's more coming up!
 </td>
 <td>
 <embed width="291" height="307" name="plugin" src="/blog/assets/images/study_pedro.pdf" type="application/pdf">
