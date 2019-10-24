@@ -1,6 +1,6 @@
 # Site
-name: 'Aline Quadros'
-description: 'Data science | Ecological applications'
+name: 'The BioDataScientist'
+description: 'Data science | Ecological questions'
 logo: 'assets/images/logo.png'
 favicon: 'assets/images/favicon.ico'
 baseurl: '/blog'
@@ -48,7 +48,7 @@ markdown: kramdown
 highlighter: rouge
 
 # Paginate
-paginate: 10
+paginate: 15
 
 
 
